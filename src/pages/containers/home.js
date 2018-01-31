@@ -34,21 +34,24 @@ class Home extends Component {
           <Categories
             categories={this.props.categories}
             handleOpenModal={this.handleOpenModal}
-            search={this.props.search} /> {this
-              .props
-              .modal
-              .get('visibility') && <ModalContainer>
-                <Modal handleClick={this.handleCloseModal}>
-                  <VideoPlayer
-                    autoplay
-                    id={this
-                      .props
-                      .modal
-                      .get('mediaId')}
-                  // title={this.state.media.title
-                  />
-                </Modal>
-              </ModalContainer>
+            search={this.props.search}
+            isLoading={this.props.isLoading}
+          />
+          {this
+            .props
+            .modal
+            .get('visibility') && <ModalContainer>
+              <Modal handleClick={this.handleCloseModal}>
+                <VideoPlayer
+                  autoplay
+                  id={this
+                    .props
+                    .modal
+                    .get('mediaId')}
+                // title={this.state.media.title
+                />
+              </Modal>
+            </ModalContainer>
           }
         </HomeLayout>
       </HandleError>
@@ -82,7 +85,8 @@ class Home extends Component {
   return {
     categories: categories,
     search: searchResults,
-    modal: state.get('modal')
+    modal: state.get('modal'),
+    isLoading: state.get('isLoading').get('active')
   }
 }
 

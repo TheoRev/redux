@@ -15,7 +15,7 @@ class SearchContainer extends Component {
     this
       .props
       .actions
-      .searchEntities(this.input.value);
+      .searchAsyncEntities(this.input.value);
   }
 
   setInputRef = element => {
